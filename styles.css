@@ -1,0 +1,391 @@
+/* ===========================================================
+   Citravelia — Real Estate Consultancy
+   Design tokens
+   =========================================================== */
+:root{
+  --ink: #1e3328;        /* deep pine — headlines, wordmark */
+  --ink-soft: #48594c;   /* muted body text on light */
+  --olive: #7c8a5e;      /* sage olive branch */
+  --olive-light:#a9b394;
+  --sand: #ddceac;       /* warm sand */
+  --cream: #faf6ee;      /* page background */
+  --paper: #ffffff;
+  --gold: #ad8a52;       /* brass accent — dividers, links */
+  --line: #e4dcc8;
+
+  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+
+  --container: 1180px;
+  --radius: 2px;
+}
+
+*,*::before,*::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background: var(--cream);
+  color: var(--ink-soft);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img{ max-width:100%; display:block; }
+
+h1,h2,h3{
+  font-family: var(--serif);
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 .5em;
+}
+
+a{ color: inherit; text-decoration: none; }
+
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow{
+  font-family: var(--sans);
+  font-size: .74rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display:inline-block;
+  margin-bottom: 1.1em;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.6em;
+  padding: .95em 1.9em;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: .82rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+.btn:hover{ background: var(--ink); color: var(--cream); }
+.btn.solid{ background: var(--ink); color: var(--cream); }
+.btn.solid:hover{ background: transparent; color: var(--ink); }
+
+/* ---------- diamond divider (matches the logo's mark) ---------- */
+.divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 18px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 340px;
+}
+.divider::before,.divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background: var(--gold);
+  opacity:.55;
+}
+.divider svg{ flex-shrink:0; }
+.divider.left{ margin:0; justify-content:flex-start; }
+.divider.left::after{ max-width:120px; }
+
+/* ---------- header ---------- */
+header{
+  position: sticky;
+  top:0;
+  z-index: 50;
+  background: rgba(250,246,238,.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+.brand img{ height: 46px; width:auto; }
+.brand span{
+  font-family: var(--serif);
+  font-size: 1.22rem;
+  letter-spacing: .18em;
+  color: var(--ink);
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap: 36px;
+  font-size: .82rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.nav-links a{ position:relative; color: var(--ink-soft); }
+.nav-links a:hover{ color: var(--ink); }
+.nav-links a.btn{ color:var(--ink); }
+.nav-toggle{ display:none; }
+
+/* ---------- hero ---------- */
+.hero{
+  padding: 108px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.hero .container{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 60px;
+  align-items:center;
+}
+.hero h1{
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  max-width: 12ch;
+}
+.hero p.lead{
+  font-size: 1.08rem;
+  max-width: 46ch;
+  margin: 0 0 2em;
+}
+.hero-actions{ display:flex; gap:18px; flex-wrap:wrap; }
+.hero-art{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-art img{
+  width: 100%;
+  max-width: 460px;
+  filter: drop-shadow(0 22px 34px rgba(30,51,40,.14));
+}
+.hero-stats{
+  display:flex;
+  gap: 44px;
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.hero-stats div strong{
+  display:block;
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  color: var(--ink);
+}
+.hero-stats div span{
+  font-size: .78rem;
+  letter-spacing: .06em;
+  color: var(--ink-soft);
+}
+
+/* ---------- section shell ---------- */
+section{ padding: 96px 0; }
+.section-head{
+  max-width: 640px;
+  margin: 0 0 56px;
+}
+.section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+
+/* ---------- about ---------- */
+.about{ background: var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.about .container{
+  display:grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 72px;
+  align-items:start;
+}
+.about-quote{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.about-body p{ margin: 0 0 1.3em; }
+.about-body p:last-child{ margin-bottom:0; }
+
+/* ---------- services ---------- */
+.services-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.service{
+  background: var(--cream);
+  padding: 44px 32px;
+  transition: background .25s ease;
+}
+.service:hover{ background: var(--paper); }
+.service .num{
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--olive);
+  font-size: 1rem;
+  margin-bottom: 22px;
+  display:block;
+}
+.service h3{ font-size: 1.18rem; margin-bottom:.55em; }
+.service p{ font-size: .93rem; margin:0; }
+
+/* ---------- approach ---------- */
+.approach{ background: var(--ink); color: var(--sand); }
+.approach h2, .approach .eyebrow{ color: var(--cream); }
+.approach .eyebrow{ color: var(--sand); opacity:.85; }
+.approach .section-head p{ color: var(--olive-light); }
+.approach-steps{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 48px;
+  margin-top: 20px;
+}
+.approach-steps li{ list-style:none; }
+.approach-steps .phase{
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+  display:block;
+}
+.approach-steps h3{ color: var(--cream); font-size:1.15rem; }
+.approach-steps p{ color: var(--olive-light); font-size: .93rem; }
+.approach-steps li + li{ border-left: 1px solid rgba(250,246,238,.14); padding-left: 48px; }
+.approach-steps li:first-child{ padding-left:0; }
+
+/* ---------- clientele ---------- */
+.clientele{ background: var(--paper); border-bottom: 1px solid var(--line); }
+.clientele .container{
+  display:grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 60px;
+  align-items:center;
+}
+.tag-list{ display:flex; flex-wrap:wrap; gap: 14px; }
+.tag-list span{
+  border:1px solid var(--line);
+  padding: .8em 1.3em;
+  font-size: .85rem;
+  border-radius: 999px;
+  color: var(--ink-soft);
+}
+
+/* ---------- contact ---------- */
+.contact{ }
+.contact .container{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+}
+.contact-details a{
+  display:flex;
+  align-items:baseline;
+  gap: 14px;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  color: var(--ink);
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-details a span.label{
+  font-family: var(--sans);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  min-width: 110px;
+}
+.contact-details a:hover{ color: var(--olive); }
+
+form{ display:flex; flex-direction:column; gap: 20px; }
+.field{ display:flex; flex-direction:column; gap: 8px; }
+.field label{
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.field input, .field textarea, .field select{
+  font-family: var(--sans);
+  font-size: .98rem;
+  padding: 12px 4px;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  outline: none;
+}
+.field input:focus, .field textarea:focus, .field select:focus{ border-color: var(--olive); }
+.field textarea{ resize: vertical; min-height: 96px; }
+.form-note{ font-size: .82rem; color: var(--ink-soft); }
+.form-status{ font-size: .85rem; min-height: 1.2em; }
+
+/* ---------- footer ---------- */
+footer{
+  border-top: 1px solid var(--line);
+  padding: 44px 0;
+}
+footer .container{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+footer .brand span{ font-size: 1rem; }
+.foot-meta{ font-size: .82rem; color: var(--ink-soft); display:flex; gap:24px; }
+
+/* ---------- reveal-on-scroll ---------- */
+.reveal{ opacity:0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  html{ scroll-behavior:auto; }
+}
+
+/* ---------- focus ---------- */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--olive);
+  outline-offset: 3px;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px){
+  .hero .container, .about .container, .clientele .container, .contact .container{
+    grid-template-columns: 1fr;
+  }
+  .hero-art{ order:-1; }
+  .services-grid{ grid-template-columns: repeat(2,1fr); }
+  .approach-steps{ grid-template-columns: 1fr; gap: 36px; }
+  .approach-steps li + li{ border-left:none; padding-left:0; border-top:1px solid rgba(250,246,238,.14); padding-top:32px; }
+}
+@media (max-width: 720px){
+  .nav-links{
+    position:fixed; inset: 68px 0 0 0; background: var(--cream);
+    flex-direction:column; padding: 40px 32px; gap: 26px;
+    transform: translateX(100%); transition: transform .3s ease;
+  }
+  .nav-links.open{ transform: translateX(0); }
+  .nav-toggle{
+    display:block; background:none; border:none; cursor:pointer;
+    color: var(--ink); font-size: 1.4rem; line-height:1;
+  }
+  .services-grid{ grid-template-columns: 1fr; }
+  .hero-stats{ gap: 28px; flex-wrap:wrap; }
+  section{ padding: 68px 0; }
+}
